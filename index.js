@@ -22,8 +22,11 @@ var turbo = {
                     turbo.shell(`pm2 restart ${bot}`);
                 }));
             });
+        } else {
+            console.log("no config");
+            return Promise.resolve();
         }
-        return Promise.resolve();
+       
     }
 };
 
