@@ -1,5 +1,6 @@
 //var config = require('./turbo.json');
 var fs = require('mz/fs');
+var debug = require('debug')('sockbot:turbo-enigma');
 
 var turbo = {
     git:  require("git-promise"),
@@ -7,18 +8,21 @@ var turbo = {
     run: function (config) {
         function parseOutput(configItem, stdOut) {
             if (stdOut.indexOf("Already up-to-date") === -1) {
+                debug(`Updating bots for ${configItem.folder}`);
                 bots = bots.concat(configItem.bots);
+            } else {
+                debug(`${configItem.folder} is up to date`);
             }
         }
         
         if (config && config.repositories) {
             var bots = [];
             return Promise.all(config.repositories.map((item) => {
-                console.log(`pulling ${item.folder}`);
+                debug(`pulling ${item.folder}`);
                 turbo.git("pull", {cwd: item.folder}, (output) => parseOutput(item, output));
             })).then(() => {
                 return Promise.all(bots.map((bot) => {
-                    console.log(`updating ${bot}`);
+                    debug(`updating ${bot}`);
                     turbo.shell(`pm2 restart ${bot}`);
                 }));
             });
