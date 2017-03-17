@@ -34,5 +34,5 @@ module.exports = turbo;
 
 /* istanbul ignore if */
 if (require.main === module) {
-    turbo.run(process.argv[2])
+    turbo.run(require(process.argv[2]));
 }
