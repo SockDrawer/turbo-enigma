@@ -19,13 +19,13 @@ var turbo = {
             var bots = [];
             return Promise.all(config.repositories.map((item) => {
                 debug(`pulling ${item.folder}`);
-                turbo.git("pull", {cwd: item.folder}, (output) => parseOutput(item, output));
+                return turbo.git("pull", {cwd: item.folder}, (output) => parseOutput(item, output));
             })).then(() => {
                 debug(`bots:`);
                 debug(bots);
                 return Promise.all(bots.map((bot) => {
                     debug(`updating ${bot}`);
-                    turbo.shell(`pm2 restart ${bot}`);
+                    return turbo.shell(`pm2 restart ${bot}`);
                 }));
             }).catch((err) => {
                 debug('error occurred');
