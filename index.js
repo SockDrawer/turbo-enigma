@@ -15,7 +15,7 @@ var turbo = {
             var bots = [];
             return Promise.all(config.repositories.map((item) => {
                 console.log(`pulling ${item.folder}`);
-                turbo.git("pull", (output) => parseOutput(item, output), {cwd: item.folder});
+                turbo.git("pull", {cwd: item.folder}, (output) => parseOutput(item, output));
             })).then(() => {
                 return Promise.all(bots.map((bot) => {
                     console.log(`updating ${bot}`);

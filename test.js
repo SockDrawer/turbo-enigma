@@ -35,7 +35,7 @@ describe('Functionality', function() {
                     bots: []
                 }
             ]
-        }).then(() => oot.git.should.have.been.calledWith("pull", sinon.match.any, {cwd: "/home/sockbot/sockMafia"}));
+        }).then(() => oot.git.should.have.been.calledWith("pull", {cwd: "/home/sockbot/sockMafia"}));
     });
     
     it("Should do a git update for each folder", () => {
@@ -51,7 +51,7 @@ describe('Functionality', function() {
                     "bots": []
                 }
             ]
-        }).then(() => oot.git.should.have.been.calledWith("pull", sinon.match.any, {cwd: "/home/sockbot/sockMafia-autoGM"}));
+        }).then(() => oot.git.should.have.been.calledWith("pull", {cwd: "/home/sockbot/sockMafia-autoGM"}));
     });
     
     it("Should call out to pm2", () => {
