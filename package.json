@@ -1,0 +1,30 @@
+{
+  "name": "turbo-enigma",
+  "version": "0.1.0",
+  "description": "Update bots automatically.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SockDrawer/turbo-enigma.git"
+  },
+  "author": "yamikuronue",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SockDrawer/turbo-enigma/issues"
+  },
+  "homepage": "https://github.com/SockDrawer/turbo-enigma#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0",
+    "sinon": "^1.17.7",
+    "sinon-as-promised": "^4.0.2"
+  },
+  "dependencies": {
+    "execute-shell-promise": "^1.0.1",
+    "git-promise": "^0.3.1",
+    "mz": "^2.6.0"
+  }
+}
