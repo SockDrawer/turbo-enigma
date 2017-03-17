@@ -25,6 +25,9 @@ var turbo = {
                     debug(`updating ${bot}`);
                     turbo.shell(`pm2 restart ${bot}`);
                 }));
+            }).catch((err) => {
+                debug('error occurred');
+                debug(err);
             });
         } else {
             console.log("no config");
