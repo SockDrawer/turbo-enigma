@@ -13,7 +13,10 @@ var turbo = {
         
         if (config && config.repositories) {
             var bots = [];
-            return Promise.all(config.repositories.map((item) => turbo.git("pull", (output) => parseOutput(item, output), {cwd: item.folder}))).then(() => {
+            return Promise.all(config.repositories.map((item) => {
+                console.log(`pulling ${item.folder}`);
+                turbo.git("pull", (output) => parseOutput(item, output), {cwd: item.folder});
+            })).then(() => {
                 return Promise.all(bots.map((bot) => {
                     console.log(`updating ${bot}`);
                     turbo.shell(`pm2 restart ${bot}`);
