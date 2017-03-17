@@ -34,5 +34,5 @@ module.exports = turbo;
 
 /* istanbul ignore if */
 if (require.main === module) {
-    turbo.run(require(process.argv[2]));
+    turbo.run(JSON.parse(fs.readFileSync(process.argv[2], 'utf-8')));
 }
