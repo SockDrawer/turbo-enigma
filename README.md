@@ -13,16 +13,16 @@ For each repository on disk, it will do a git pull. If it finds updates, it will
     "repositories": [
         {
             "folder": "/path/to/clone",
-            "bots": {
+            "bots": [
                 "botName",
                 "botName"
-            }
+            ]
         },
         {
             "folder": "/path/to/clone",
-            "bots": {
+            "bots": [
                 "botName"
-            }
+            ]
         }
     ]
 }
